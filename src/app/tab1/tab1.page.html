@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      Formulário
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,9 +9,37 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
+      <ion-title size="large">Formulário</ion-title>
     </ion-toolbar>
   </ion-header>
-
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <form>
+    <ion-list>
+      <ion-item>
+        <ion-input name="name" type="text" placeholder="Cat Name" label="Cat Name"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-button id="open-modal">Select Cat Color</ion-button>
+      </ion-item>
+    </ion-list>
+  </form>
+  <ion-modal #modal trigger="open-modal">
+    <ng-template>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-button>Cancel</ion-button>
+        </ion-buttons>
+        <ion-buttons slot="end">
+          <ion-button>Done</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+      <ion-picker>
+        <ion-picker-column value="red">
+          <ion-picker-column-option value="" disabled="true">--</ion-picker-column-option>
+          <ion-picker-column-option value="red">Red</ion-picker-column-option>
+          <ion-picker-column-option value="blue">Blue</ion-picker-column-option>
+          <ion-picker-column-option value="green">Green</ion-picker-column-option>
+        </ion-picker-column>
+      </ion-picker>
+  </ng-template>
+  </ion-modal>
 </ion-content>
