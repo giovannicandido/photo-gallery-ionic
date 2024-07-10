@@ -34,4 +34,8 @@ export class Tab1Page {
     this.message = ""
   }
 
+  save() {
+    console.info("Saving...")
+  }
+
 }

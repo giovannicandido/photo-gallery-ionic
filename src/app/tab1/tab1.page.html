@@ -22,6 +22,11 @@
       </ion-item>
     </ion-list>
   </form>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button>
+      <ion-icon name="save-outline" (click)="save()"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
   <ion-modal #modal trigger="open-modal">
     <ng-template>
       
