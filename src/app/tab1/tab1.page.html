@@ -12,10 +12,10 @@
       <ion-title size="large">Formulário</ion-title>
     </ion-toolbar>
   </ion-header>
-  <form>
+  <form [formGroup]="formGroup">
     <ion-list>
       <ion-item>
-        <ion-input name="name" type="text" placeholder="Cat Name" label="Cat Name"></ion-input>
+        <ion-input name="name" formControlName="name" type="text" placeholder="Cat Name" label="Cat Name"></ion-input>
       </ion-item>
       <ion-item>
         <span style="border: 3px dashed;padding: 5px" [style]="{borderColor: selectedColor}" *ngIf="selectedColor">{{selectedColor}}</span> <ion-button id="open-modal">Select Cat Color</ion-button>
@@ -51,4 +51,9 @@
       </ion-picker>
   </ng-template>
   </ion-modal>
+  <ion-toast
+    [isOpen]="showMessage"
+    [message]="toastMessage"
+    [duration]="5000"
+  ></ion-toast>
 </ion-content>
