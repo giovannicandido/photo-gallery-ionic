@@ -18,26 +18,30 @@
         <ion-input name="name" type="text" placeholder="Cat Name" label="Cat Name"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-button id="open-modal">Select Cat Color</ion-button>
+        <span style="border: 3px dashed;padding: 5px" [style]="{borderColor: selectedColor}" *ngIf="selectedColor">{{selectedColor}}</span> <ion-button id="open-modal">Select Cat Color</ion-button>
       </ion-item>
     </ion-list>
   </form>
   <ion-modal #modal trigger="open-modal">
     <ng-template>
+      
       <ion-toolbar>
         <ion-buttons slot="start">
-          <ion-button>Cancel</ion-button>
+          <ion-button (click)="modal.dismiss()">Cancel</ion-button>
         </ion-buttons>
         <ion-buttons slot="end">
-          <ion-button>Done</ion-button>
+          <ion-button (click)="done()">Done</ion-button>
         </ion-buttons>
       </ion-toolbar>
+      <ion-list *ngIf="message">
+        <ion-item>{{message}}</ion-item>
+      </ion-list>
       <ion-picker>
-        <ion-picker-column value="red">
-          <ion-picker-column-option value="" disabled="true">--</ion-picker-column-option>
-          <ion-picker-column-option value="red">Red</ion-picker-column-option>
-          <ion-picker-column-option value="blue">Blue</ion-picker-column-option>
-          <ion-picker-column-option value="green">Green</ion-picker-column-option>
+        <ion-picker-column [value]="selectedColor" (ionChange)="colorChanged($event)">
+          <ion-picker-column-option value="#F9A825">Yellow</ion-picker-column-option>
+          <ion-picker-column-option value="#000000">Black</ion-picker-column-option>
+          <ion-picker-column-option value="#FFFFFF">White</ion-picker-column-option>
+          <ion-picker-column-option value="#689F38">Dessa cor eu não tenho</ion-picker-column-option>
         </ion-picker-column>
       </ion-picker>
   </ng-template>
