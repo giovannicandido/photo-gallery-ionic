@@ -2,7 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IonModal, ModalController } from '@ionic/angular';
 import { IonPickerColumnCustomEvent, PickerColumnChangeEventDetail, PickerColumnValue } from '@ionic/core';
-import { DatabaseService } from '../services/database-service';
+import { DataBaseService } from '../services/database-service';
 
 @Component({
   selector: 'app-tab1',
@@ -22,7 +22,7 @@ export class Tab1Page {
   @ViewChild(IonModal)
   modal!: IonModal
 
-  constructor(private fb: FormBuilder, private databaseService: DatabaseService) { 
+  constructor(private fb: FormBuilder, private databaseService: DataBaseService) { 
     this.formGroup = fb.group({
       name: ['', Validators.required],
       color: ['', Validators.required]

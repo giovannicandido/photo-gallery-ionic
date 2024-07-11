@@ -24,16 +24,10 @@
     </ion-buttons>
   </ion-toolbar>
     <ion-grid>
-      <ion-row class="ion-align-items-center">
-        <ion-col size="10" class="ion-text-start">Mel</ion-col>
+      <ion-row *ngFor="let cat of cats" class="ion-align-items-center">
+        <ion-col size="10" class="ion-text-start">{{cat.name}}</ion-col>
         <ion-col size="2" class="ion-align-self-end">
-          <app-cat-color color="#C74F4F"></app-cat-color>
-        </ion-col>
-      </ion-row>
-      <ion-row class="ion-align-items-center">
-        <ion-col size="10" class="ion-text-start">Mila</ion-col>
-        <ion-col size="2" class="ion-align-self-end">
-          <app-cat-color color="#E4B540"></app-cat-color>
+          <app-cat-color [color]="cat.color"></app-cat-color>
         </ion-col>
       </ion-row>
   </ion-grid>

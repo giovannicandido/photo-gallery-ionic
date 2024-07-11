@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 
 @Injectable({providedIn: 'root'})
-export class DatabaseService {
+export class DataBaseService {
     
     /**
      * Save any element in database
@@ -21,7 +21,13 @@ export class DatabaseService {
     }
 
     findAllByKey(key: string): any[] {
-        return []
+        return [{
+            name: 'Mila',
+            color: "white"
+          }, {
+            name: 'Mel',
+            color: 'yellow'
+          }]
     }
 
 }
