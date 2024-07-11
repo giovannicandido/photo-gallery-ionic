@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IonModal, ModalController } from '@ionic/angular';
 import { IonPickerColumnCustomEvent, PickerColumnChangeEventDetail, PickerColumnValue } from '@ionic/core';
+import { DatabaseService } from '../services/database-service';
 
 @Component({
   selector: 'app-tab1',
@@ -21,7 +22,7 @@ export class Tab1Page {
   @ViewChild(IonModal)
   modal!: IonModal
 
-  constructor(private fb: FormBuilder) { 
+  constructor(private fb: FormBuilder, private databaseService: DatabaseService) { 
     this.formGroup = fb.group({
       name: ['', Validators.required],
       color: ['', Validators.required]
@@ -49,6 +50,7 @@ export class Tab1Page {
     if(this.formGroup.valid) {
       console.info("Saving...")
       console.info(this.formGroup.value)
+      this.databaseService.saveOrUpdate('cat', this.formGroup.value, true);
     } else {
       this.toastMessage = "Invalid form"
       this.showMessage = true
