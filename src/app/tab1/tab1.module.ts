@@ -6,6 +6,7 @@ import { ExploreContainerComponentModule } from '../explore-container/explore-co
 
 import { Tab1PageRoutingModule } from './tab1-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CatColorComponent } from '../cat-color/cat-color.component';
 
 @NgModule({
   imports: [
@@ -13,7 +14,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     ReactiveFormsModule,
     ExploreContainerComponentModule,
-    Tab1PageRoutingModule
+    Tab1PageRoutingModule,
+    CatColorComponent
   ],
   declarations: [Tab1Page]
 })

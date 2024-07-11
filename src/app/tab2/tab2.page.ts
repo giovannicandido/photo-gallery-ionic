@@ -8,6 +8,8 @@ import { ViewDidEnter } from '@ionic/angular';
 })
 export class Tab2Page implements OnInit, ViewDidEnter {
 
+  loading = false
+  
   constructor() {}
 
   ionViewDidEnter(): void {

@@ -12,7 +12,29 @@
       <ion-title size="large">Lista</ion-title>
     </ion-toolbar>
   </ion-header>
+  <ion-loading [isOpen]="loading" message="Loading..."></ion-loading>
   <form>
-    
+    <ion-item>
+      <ion-searchbar placeholder="Search by cat name"></ion-searchbar>
+    </ion-item>
   </form>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button>Add</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+    <ion-grid>
+      <ion-row class="ion-align-items-center">
+        <ion-col size="10" class="ion-text-start">Mel</ion-col>
+        <ion-col size="2" class="ion-align-self-end">
+          <app-cat-color color="#C74F4F"></app-cat-color>
+        </ion-col>
+      </ion-row>
+      <ion-row class="ion-align-items-center">
+        <ion-col size="10" class="ion-text-start">Mila</ion-col>
+        <ion-col size="2" class="ion-align-self-end">
+          <app-cat-color color="#E4B540"></app-cat-color>
+        </ion-col>
+      </ion-row>
+  </ion-grid>
 </ion-content>

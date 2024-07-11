@@ -18,7 +18,7 @@
         <ion-input name="name" formControlName="name" type="text" placeholder="Cat Name" label="Cat Name"></ion-input>
       </ion-item>
       <ion-item>
-        <span style="border: 3px dashed;padding: 5px" [style]="{borderColor: selectedColor}" *ngIf="selectedColor">{{selectedColor}}</span> <ion-button id="open-modal">Select Cat Color</ion-button>
+        <app-cat-color *ngIf="selectedColor" [color]="selectedColor.toString()"></app-cat-color> <ion-button id="open-modal">Select Cat Color</ion-button>
       </ion-item>
     </ion-list>
   </form>
