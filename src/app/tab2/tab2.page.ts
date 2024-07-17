@@ -11,14 +11,20 @@ export class Tab2Page implements OnInit, ViewDidEnter {
 
   loading = false
 
-  cats: Cat[]
+  cats: Cat[] = []
 
   constructor(private databaseService: DataBaseService) {
-    this.cats = databaseService.findAllByKey('cats')
+    this.loadCats()
+  }
+
+  async loadCats() {
+    this.cats = await this.databaseService.findAllByKey('cat') as Cat[]
+    console.debug(this.cats)
   }
 
   ionViewDidEnter(): void {
     console.info("Navegou para Tab 2")
+    this.loadCats()
   }
 
   ngOnInit(): void {
