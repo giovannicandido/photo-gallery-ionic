@@ -55,11 +55,20 @@ export class Tab1Page {
       console.info(this.formGroup.value)
       await this.databaseService.saveOrUpdate('cat', this.formGroup.value, true);
       this.formGroup.reset()
-      this.toastController.create({message: "Cat saved"})
+      this.showSuccessMessage()
     } else {
       this.toastMessage = "Invalid form"
       this.showMessage = true
     }
+  }
+
+  async showSuccessMessage() {
+    const toast = await this.toastController.create({message: "Cat saved",
+      animated: true,
+      duration: 5000,
+      icon: "bookmark-outline"
+    })
+    await toast.present()
   }
 
 }
