@@ -18,7 +18,9 @@ export class Tab2Page implements OnInit, ViewDidEnter {
   }
 
   async loadCats() {
+    this.loading = true
     this.cats = await this.databaseService.findAllByKey('cat') as Cat[]
+    this.loading = false
     console.debug(this.cats)
   }
 

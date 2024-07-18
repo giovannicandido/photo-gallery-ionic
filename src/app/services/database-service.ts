@@ -45,11 +45,16 @@ export class DataBaseService {
 
   async findAllByKey(key: string): Promise<any[]> {
     const value = await this._initStorage?.get(key)
+    await this.sleep(2000)
     if(value === null || value === undefined) {
       return []
     }
     const values = value as any[]
     return values
+  }
+
+  async sleep(ms: number) {
+    return new Promise(resolve => setTimeout(resolve, ms));
   }
 
 }
